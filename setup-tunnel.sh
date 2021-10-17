@@ -16,7 +16,7 @@ echo "[INFO] Login complete."
 function mktun {
   
   echo "=== Tunnel will forward port $1 to http://devtunnel--$2.srg.id.au ==="
-  cloudflared tunnel --hostname "devtunnel--$2.srg.id.au" --name "devtunnel-$1-$2" --url "localhost:$1"
+  cloudflared tunnel --hostname "devtunnel--$2.srg.id.au" --name "devtunnel" --url "localhost:$1"
   
 }
 
