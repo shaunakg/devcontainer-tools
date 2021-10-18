@@ -1,4 +1,6 @@
 
+echo "======= make sure you've sourced this file ======="
+
 echo "=== Setting up tunnelling and port forward tools ==="
 echo "[INFO] Installing Cloudflare Tunnel"
 
@@ -16,7 +18,8 @@ echo "[INFO] Login complete."
 function mktun {
   
   echo "=== Tunnel will forward port $1 to http://devtunnel--$2.srg.id.au ==="
-  cloudflared tunnel --hostname "devtunnel--$2.srg.id.au" --name "devtunnel" --url "localhost:$1"
+  cloudflared tunnel create "$2"
+  cloudflared tunnel --hostname "devtunnel--$2.srg.id.au" --name "$2" --url "localhost:$1"
   
 }
 
