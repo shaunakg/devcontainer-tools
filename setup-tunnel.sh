@@ -24,3 +24,5 @@ echo "[INFO] Tunnel is good to go!"
 echo "Use tunnel functionality like this:"
 echo "    mktun 8080 mytunnel"
 echo "to forward localhost:8080 to http://devtunnel-mytunnel.srg.id.au"
+
+export -f mktun
