@@ -29,4 +29,10 @@ sudo aptitude install nodejs -y
 sudo apt-get update
 sudo apt-get install -y yarn
 
+echo "[INFO] Installing build-essential"
+sudo apt-get install -y build-essential
+
+echo "[INFO] Installing Ruby"
+sudo apt-get install -y ruby-full
+
 echo "[INFO] Done"
