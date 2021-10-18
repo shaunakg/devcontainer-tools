@@ -7,7 +7,7 @@ echo "[INFO] Updating apt-get"
 sudo apt-get update
 
 echo "[INFO] Installing core packages (e.g gnupg, curl)"
-sudo apt-get install curl gnupg -y
+sudo apt-get install curl wget gnupg -y
 
 echo "[INFO] Adding repo key for yarn into package repository"
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
