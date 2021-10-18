@@ -6,3 +6,4 @@ function getext {
 }
 
 echo "Using Microsoft endpoints for extension install. Run getext to install extension, or use GUI"
+export -f getext
