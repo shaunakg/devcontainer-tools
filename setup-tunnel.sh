@@ -1,6 +1,4 @@
 
-echo "======= make sure you've sourced this file ======="
-
 echo "=== Setting up tunnelling and port forward tools ==="
 echo "[INFO] Installing Cloudflare Tunnel"
 
