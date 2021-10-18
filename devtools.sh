@@ -38,6 +38,7 @@ sudo apt-get install -y ruby-full
 echo "[INFO] Installing Go"
 wget -O go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
 rm -rf /usr/local/go && tar -C /usr/local -xzf go.tar.gz
+rm -f go.tar.gz
 
 export PATH=$PATH:/usr/local/go/bin
 
