@@ -3,7 +3,7 @@ echo "=== Setting up tunnelling and port forward tools ==="
 echo "[INFO] Installing Cloudflare Tunnel"
 
 curl -L -o "cftunnel.deb" "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb"
-dpkg -i cftunnel.dev
+dpkg -i cftunnel.deb
 rm -f cftunnel.deb
 
 echo "[INFO] Cloudflare Tunnel installed."
