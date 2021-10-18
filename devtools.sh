@@ -39,7 +39,11 @@ echo "[INFO] Installing Go"
 wget -O go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
 rm -rf /usr/local/go && tar -C /usr/local -xzf go.tar.gz
 rm -f go.tar.gz
-
 export PATH=$PATH:/usr/local/go/bin
+
+echo "[INFO] Installing GCM"
+wget -O gcm.deb "https://github.com/microsoft/Git-Credential-Manager-Core/releases/download/v2.0.567/gcmcore-linux_amd64.2.0.567.18224.deb"
+dpkg -i gcm.deb
+rm -f gcm.deb
 
 echo "[INFO] Done"
