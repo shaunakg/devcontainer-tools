@@ -15,13 +15,8 @@ cloudflared tunnel login
 
 echo "[INFO] Login complete."
 
-function mktun {
-  
-  echo "=== Tunnel will forward port $1 to http://devtunnel--$2.srg.id.au ==="
-  cloudflared tunnel create "$2"
-  cloudflared tunnel --hostname "devtunnel--$2.srg.id.au" --name "$2" --url "localhost:$1"
-  
-}
+chmod +x /home/coder/tools/mktun
+cp /home/coder/tools/mktun /usr/bin/
 
 echo "[INFO] Tunnel is good to go!"
 echo "Use tunnel functionality like this:"
