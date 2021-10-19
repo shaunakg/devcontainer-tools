@@ -1,0 +1,6 @@
+#!/bin/bash
+
+export SERVICE_URL="https://marketplace.visualstudio.com/_apis/public/gallery"
+export ITEM_URL="https://marketplace.visualstudio.com/items"
+
+code-server --install-extension $1
