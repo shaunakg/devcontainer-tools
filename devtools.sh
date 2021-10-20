@@ -18,7 +18,7 @@ echo "[INFO] Installing tzdata"
 sudo apt-get install tzdata -y
 
 echo "[INFO] Installing python3.10"
-sudo apt-get install python3.10 -y
+sudo apt-get install python3.10 python3-pip -y
 sudo apt-get install aptitude -y
 
 echo "[INFO] Adding node.js package repo to system"
