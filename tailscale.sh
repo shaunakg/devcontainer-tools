@@ -10,4 +10,4 @@ go() {
   sudo tailscale up --authkey "$1"
 }
 
-go 2>&1 >> /home/coder/tools/tailscale.log
+go "$1" 2>&1 >> /home/coder/tools/tailscale.log
