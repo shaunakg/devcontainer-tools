@@ -1,0 +1,23 @@
+=============[ Welcome to your DevContainer ]=============
+There are scripts available that can make your experience
+with the container more streamlined. They are situated in
+the following directory: `/home/coder/tools`
+
+To setup a tunnel:
+  1. Run `sh /home/coder/tools/tunnel.sh`
+  2. Authorize with Cloudflare
+  3. From then on, use `mktun <port> <domain>`
+  4. <port> is forwarded to `devtunnel--<domain>.srg.id.au`
+
+This instance has been provisioned with access to the
+srg internal network. Monitoring is forwarded to the
+global logging Elasticsearch cluster. To see the status,
+go to http://k.odin.srg.id.au/app/metrics/inventory.
+
+To turn off this message, run the following command:
+        printf "" > /home/coder/tools/startup.txt
+  
+Enjoy your DevContainer experience! Remember, you can
+de-provision this instance at any time from
+https://dev.srg.id.au.
+==========================================================
