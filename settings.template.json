@@ -7,7 +7,7 @@
     "javascript": true
   },
   "git.autofetch" : true,
-  "workbench.colorTheme" : "Default Dark+",
+  "workbench.colorTheme" : "Tomorrow Night Blue",
   "workbench.startupEditor": "readme",
   "peacock.favoriteColors" : [
     {
