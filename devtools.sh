@@ -6,6 +6,16 @@ main () {
 
   echo "[INFO] Updating apt-get"
   sudo apt-get update
+  
+  echo "[INFO] Installing Go"
+  wget -O go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
+  rm -rf /usr/local/go && tar -C /usr/local -xzf go.tar.gz
+  rm -f go.tar.gz
+  export PATH=$PATH:/usr/local/go/bin
+  echo "export PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
+
+  echo "[INFO] Installing extensions"
+  go run /home/coder/tools/extensions/install.go
 
   echo "[INFO] Installing core packages (e.g gnupg, curl)"
   sudo apt-get install curl wget gnupg -y
@@ -35,17 +45,6 @@ main () {
 
   echo "[INFO] Installing Ruby"
   sudo apt-get install -y ruby-full
-
-  echo "[INFO] Installing Go"
-  wget -O go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
-  rm -rf /usr/local/go && tar -C /usr/local -xzf go.tar.gz
-  rm -f go.tar.gz
-
-  export PATH=$PATH:/usr/local/go/bin
-  echo "export PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
-
-  echo "[INFO] Installing extensions"
-  go run /home/coder/tools/extensions/install.go
 
   echo "[INFO] Installing Git Credential Manager Core"
   wget -O gcm.deb "https://github.com/microsoft/Git-Credential-Manager-Core/releases/download/v2.0.567/gcmcore-linux_amd64.2.0.567.18224.deb"
