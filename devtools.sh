@@ -7,6 +7,9 @@ main () {
   echo "[INFO] Updating apt-get"
   sudo apt-get update
   
+  echo "[INFO] Installing core packages (e.g gnupg, curl)"
+  sudo apt-get install curl wget gnupg -y
+  
   echo "[INFO] Installing Go"
   wget -O go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
   rm -rf /usr/local/go && tar -C /usr/local -xzf go.tar.gz
@@ -17,8 +20,6 @@ main () {
   echo "[INFO] Installing extensions"
   go run /home/coder/tools/extensions/install.go
 
-  echo "[INFO] Installing core packages (e.g gnupg, curl)"
-  sudo apt-get install curl wget gnupg -y
 
   echo "[INFO] Adding repo key for yarn into package repository"
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
