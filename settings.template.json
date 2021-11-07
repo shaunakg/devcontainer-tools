@@ -52,7 +52,6 @@
   "workbench.editorAssociations" : {
     "*.ipynb" : "jupyter-notebook"
   },
-  "python.formatting.provider" : "black",
   "editor.accessibilitySupport" : "off",
   "explorer.confirmDelete" : false,
   "git.confirmSync" : false,
@@ -75,8 +74,6 @@
   "remote.SSH.defaultExtensions": [
     "gitpod.gitpod-remote-ssh"
   ],
-  "remote.SSH.configFile": "/var/folders/5k/h19y1fhj4dj1m94l51nc9_gm0000gn/T/gitpod_ssh_config-40301-WI31H7KDoiZe",
-  "python.defaultInterpreterPath": "/opt/homebrew/bin/python3",
   "go.toolsManagement.autoUpdate": true,
   "python.insidersChannel": "weekly"
 }
