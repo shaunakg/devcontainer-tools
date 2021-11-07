@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-go () {
+main () {
   echo "[INFO] Setting timezone"
   sudo ln -sf /usr/share/zoneinfo/Australia/Melbourne /etc/localtime
 
@@ -40,6 +40,8 @@ go () {
   wget -O go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
   rm -rf /usr/local/go && tar -C /usr/local -xzf go.tar.gz
   rm -f go.tar.gz
+
+  export PATH=$PATH:/usr/local/go/bin
   echo "export PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
 
   echo "[INFO] Installing extensions"
@@ -57,4 +59,4 @@ go () {
   echo "[INFO] Done"
 }
 
-go 2>&1 >> /home/coder/tools/devtools-install.log
+main 2>&1 | tee -a /home/coder/tools/devtools-install.log
