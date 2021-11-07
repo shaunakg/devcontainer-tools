@@ -41,6 +41,9 @@ rm -rf /usr/local/go && tar -C /usr/local -xzf go.tar.gz
 rm -f go.tar.gz
 echo "export PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
 
+echo "[INFO] Installing extensions"
+go run /home/coder/tools/extensions/install.go
+
 echo "[INFO] Installing Git Credential Manager Core"
 wget -O gcm.deb "https://github.com/microsoft/Git-Credential-Manager-Core/releases/download/v2.0.567/gcmcore-linux_amd64.2.0.567.18224.deb"
 dpkg -i gcm.deb
