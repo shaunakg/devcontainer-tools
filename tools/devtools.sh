@@ -66,7 +66,7 @@ main () {
   # Custom settings.json (symlink so git pull still works)
   # Doing this last so that it's easy to tell if the devtools script has finished yet
   # echo "[INFO] Symlinking settings.json from repo"
-  ln -sf /home/coder/tools/tools/settings.template.json $codedir/User/settings.json
+  ln -sf /home/coder/tools/tools/settings.template.json /root/.local/share/code-server/User/settings.json
 
   echo "[INFO] Done"
 }
