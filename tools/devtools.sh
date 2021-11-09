@@ -55,6 +55,9 @@ main () {
   curl -fsSL https://get.docker.com -o get-docker.sh
   sudo sh get-docker.sh
 
+  echo "[INFO] Settings up .bashrc message"
+  echo cat /home/coder/tools/tools/startup.txt >> /root/.bashrc
+
   # Custom settings.json (symlink so git pull still works)
   # Doing this last so that it's easy to tell if the devtools script has finished yet
   # echo "[INFO] Symlinking settings.json from repo"
