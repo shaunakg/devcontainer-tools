@@ -11,15 +11,14 @@ main () {
   sudo apt-get install curl wget gnupg -y
   
   echo "[INFO] Installing Go"
-  wget -O go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
+  wget -qO go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
   rm -rf /usr/local/go && tar -C /usr/local -xzf go.tar.gz
   rm -f go.tar.gz
   export PATH=$PATH:/usr/local/go/bin
   echo "export PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
 
-  echo "[INFO] Installing extensions"
-  go run /home/coder/tools/extensions/install.go
-
+  echo "[INFO] SKIPPING THIS JOB - Installing extensions"
+  # go run /home/coder/tools/extensions/install.go
 
   echo "[INFO] Adding repo key for yarn into package repository"
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -48,20 +47,22 @@ main () {
   sudo apt-get install -y ruby-full
 
   echo "[INFO] Installing Git Credential Manager Core"
-  wget -O gcm.deb "https://github.com/microsoft/Git-Credential-Manager-Core/releases/download/v2.0.567/gcmcore-linux_amd64.2.0.567.18224.deb"
+  wget -qO gcm.deb "https://github.com/microsoft/Git-Credential-Manager-Core/releases/download/v2.0.567/gcmcore-linux_amd64.2.0.567.18224.deb"
   dpkg -i gcm.deb
   rm -f gcm.deb
 
   echo "[INFO] Installing Docker"
   curl -fsSL https://get.docker.com -o get-docker.sh
   sudo sh get-docker.sh
-  
+
   # Custom settings.json (symlink so git pull still works)
   # Doing this last so that it's easy to tell if the devtools script has finished yet
-  echo "[INFO] Symlinking settings.json from repo"
-  ln -sf /home/coder/tools/settings.template.json $codedir/User/settings.json
+  # echo "[INFO] Symlinking settings.json from repo"
+  ln -sf /home/coder/tools/tools/settings.template.json $codedir/User/settings.json
 
   echo "[INFO] Done"
 }
 
 main 2>&1 | tee -a /home/coder/tools/devtools-install.log
+
+exit 0
