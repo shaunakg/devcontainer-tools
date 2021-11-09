@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Devtools install script for devcontainer
+# Instals common useful packages
+
 main () {
   echo "[INFO] Setting timezone"
   sudo ln -sf /usr/share/zoneinfo/Australia/Melbourne /etc/localtime
@@ -17,6 +20,8 @@ main () {
   export PATH=$PATH:/usr/local/go/bin
   echo "export PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
 
+
+  # We will install extensions in a separate 'docker exec', because at this point code-server hasn't started yet.
   echo "[INFO] SKIPPING THIS JOB - Installing extensions"
   # go run /home/coder/tools/extensions/install.go
 
