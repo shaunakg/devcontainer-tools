@@ -13,7 +13,7 @@ type Extensions []string
 func main() {
 
 	var data Extensions
-	file, err := ioutil.ReadFile("/home/coder/tools/extensions/extensions.json")
+	file, err := ioutil.ReadFile("/root/tools/extensions/extensions.json")
 
 	if err != nil {
 		log.Fatal(err)

@@ -1,8 +1,6 @@
 [
     "eamodio.gitlens",
     "esbenp.prettier-vscode",
-    "github.copilot",
-    "gitpod.gitpod-desktop",
     "golang.go",
     "hashicorp.terraform",
     "johnpapa.vscode-peacock",
@@ -22,5 +20,6 @@
     "rust-lang.rust",
     "svelte.svelte-vscode",
     "tomoki1207.pdf",
-    "visualstudioexptteam.vscodeintellicode"
+    "visualstudioexptteam.vscodeintellicode",
+    "github.github-vscode-theme"
 ]

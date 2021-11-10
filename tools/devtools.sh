@@ -4,15 +4,23 @@
 # Instals common useful packages
 
 main () {
+
+  mkdir -pv '/home/coder/project'
+  mkdir -pv '/root/.local/share/code-server/User/'
+
   echo "[INFO] Setting timezone"
   sudo ln -sf /usr/share/zoneinfo/Australia/Melbourne /etc/localtime
 
-  echo "[INFO] Updating apt-get"
-  sudo apt-get update
-  
   echo "[INFO] Installing core packages (e.g gnupg, curl)"
   sudo apt-get install curl wget gnupg -y
-  
+
+  echo "[INFO] Adding repo key for yarn into package repository"
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+  echo "[INFO] Updating apt-get"
+  sudo apt-get update
+    
   echo "[INFO] Installing Go"
   wget -qO go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
   rm -rf /usr/local/go && tar -C /usr/local -xzf go.tar.gz
@@ -24,11 +32,6 @@ main () {
   # We will install extensions in a separate 'docker exec', because at this point code-server hasn't started yet.
   echo "[INFO] SKIPPING THIS JOB - Installing extensions"
   # go run /home/coder/tools/extensions/install.go
-
-  echo "[INFO] Adding repo key for yarn into package repository"
-  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  sudo apt-get update -y
 
   echo "[INFO] Installing tzdata"
   sudo apt-get install tzdata -y
@@ -42,7 +45,6 @@ main () {
 
   echo "[INFO] Installing node.js and yarn"
   sudo aptitude install nodejs -y
-  sudo apt-get update
   sudo apt-get install -y yarn
 
   echo "[INFO] Installing build-essential"
@@ -60,17 +62,18 @@ main () {
   curl -fsSL https://get.docker.com -o get-docker.sh
   sudo sh get-docker.sh
 
-  echo "[INFO] Settings up .bashrc message"
-  echo cat /home/coder/tools/tools/startup.txt >> /root/.bashrc
+  echo "[INFO] Setting up .bashrc message"
+  echo cat /root/tools/startup.txt >> /root/.bashrc
 
   # Custom settings.json (symlink so git pull still works)
   # Doing this last so that it's easy to tell if the devtools script has finished yet
-  # echo "[INFO] Symlinking settings.json from repo"
-  ln -sf /home/coder/tools/tools/settings.template.json /root/.local/share/code-server/User/settings.json
+  echo "[INFO] Symlinking settings.json from repo"
+  cp /root/tools/settings.template.json /root/.local/share/code-server/User/settings.json # cp instead of ln -sf
 
   echo "[INFO] Done"
 }
 
+ls -la /root/tools || exit 1
 main 2>&1 | tee -a /home/coder/tools/devtools-install.log
 
 exit 0

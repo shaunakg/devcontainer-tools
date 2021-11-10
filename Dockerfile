@@ -2,7 +2,11 @@ FROM bencdr/code-server-deploy-container:latest
 
 USER root
 
-ADD . /home/coder/tools
-COPY ./tools/config.yaml /home/coder/config.yaml
+RUN rm -rfv /home/coder/project/*
+ADD ./tools/ /root/tools
+COPY ./tools/config.yaml /root/config.yaml
 
-RUN sudo sh /home/coder/tools/tools/devtools.sh
+RUN ls -la /home/coder
+# RUN cat /home/coder/config.yaml
+
+RUN sudo sh /root/tools/devtools.sh
