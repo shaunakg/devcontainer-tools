@@ -3,8 +3,8 @@
                 Welcome to DevPlatform 💖
                 
 For scripts that could improve your experience, check out
-the /home/coder/tools directory. You can ⌘+click on the 
-path to open it in VSCode.
+the /root/tools directory. You can ⌘+click on the path to
+open it in VSCode.
 
                         Enjoy! 🤩
 
