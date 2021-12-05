@@ -61,9 +61,14 @@ main () {
   echo "[INFO] Installing Docker"
   curl -fsSL https://get.docker.com -o get-docker.sh
   sudo sh get-docker.sh
-
-  echo "[INFO] Setting up .bashrc message"
+  
+  echo "[INFO] Installing OhMyZsh"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  chsh -s $(which zsh)
+  
+  echo "[INFO] Setting up .bash/zshrc message"
   echo cat /root/tools/startup.txt >> /root/.bashrc
+  echo cat /root/tools/startup.txt >> /root/.zshrc
 
   # Custom settings.json (symlink so git pull still works)
   # Doing this last so that it's easy to tell if the devtools script has finished yet
