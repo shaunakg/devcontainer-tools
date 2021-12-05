@@ -13,8 +13,8 @@ cloudflared tunnel login
 
 echo "[INFO] Login complete."
 
-chmod +x /home/coder/tools/mktun
-ln -s /home/coder/tools/mktun /usr/bin/mktun
+chmod +x /root/tools/mktun
+ln -s /root/tools/mktun /usr/bin/mktun
 
 echo "[INFO] Tunnel is good to go!"
 echo "Use tunnel functionality like this:"
