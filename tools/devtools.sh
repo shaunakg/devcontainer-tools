@@ -79,6 +79,6 @@ main () {
 }
 
 ls -la /root/tools || exit 1
-main 2>&1 | tee -a /home/coder/tools/devtools-install.log
+main 2>&1 | tee -a /root/tools/devtools-install.log
 
 exit 0
