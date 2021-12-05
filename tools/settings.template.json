@@ -76,5 +76,6 @@
     "gitpod.gitpod-remote-ssh"
   ],
   "go.toolsManagement.autoUpdate": true,
-  "python.insidersChannel": "weekly"
+  "python.insidersChannel": "weekly",
+  "terminal.integrated.defaultProfile.linux": "zsh"
 }
