@@ -27,6 +27,7 @@ main () {
   rm -f go.tar.gz
   export PATH=$PATH:/usr/local/go/bin
   echo "export PATH=$PATH:/usr/local/go/bin" >> /root/.bashrc
+  echo "export PATH=$PATH:/usr/local/go/bin" >> /root/.zshrc
 
 
   # We will install extensions in a separate 'docker exec', because at this point code-server hasn't started yet.
